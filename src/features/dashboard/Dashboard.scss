@@ -1,0 +1,585 @@
+@import '../../styles/variables';
+
+// ─── Animations ───────────────────────────────────────────────────────────────
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes barGrow {
+  from { height: 0 !important; }
+  to   { /* natural */ }
+}
+
+@keyframes fillWidth {
+  from { width: 0 !important; }
+  to   { /* natural */ }
+}
+
+// ─── Dashboard Shell ──────────────────────────────────────────────────────────
+
+.dashboard {
+  max-width: 1600px;
+
+  // Staggered fade-in
+  &--loaded {
+    .stat-card {
+      animation: fadeUp 0.4s ease both;
+    }
+    .dashboard__card {
+      animation: fadeUp 0.4s ease both;
+    }
+    .revenue-chart__bar {
+      animation: barGrow 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    }
+    .fleet-status__bar-fill {
+      animation: fillWidth 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    }
+  }
+
+  // ── Header ────────────────────────────────────────────────────────────────
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: $space-xl;
+    gap: $space-md;
+    flex-wrap: wrap;
+  }
+
+  &__greeting {
+    font-family: $font-display;
+    font-size: 24px;
+    font-weight: 700;
+    color: $color-black;
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+  }
+
+  &__sub {
+    font-size: 14px;
+    color: $color-grey-500;
+  }
+
+  &__header-actions {
+    display: flex;
+    gap: $space-sm;
+    flex-shrink: 0;
+  }
+
+  // ── Stats Grid ────────────────────────────────────────────────────────────
+  &__stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $space-lg;
+    margin-bottom: $space-xl;
+
+    @media (max-width: 1200px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 700px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // ── Main Grid ─────────────────────────────────────────────────────────────
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $space-lg;
+
+    @media (max-width: 1100px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__card {
+    background: $color-white;
+    border-radius: $radius-lg;
+    border: 1px solid $color-grey-200;
+    padding: $space-lg;
+    animation-delay: 200ms;
+
+    &--wide {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: $space-lg;
+    gap: $space-md;
+    flex-wrap: wrap;
+  }
+
+  &__card-title {
+    font-family: $font-display;
+    font-size: 15px;
+    font-weight: 700;
+    color: $color-black;
+    letter-spacing: -0.01em;
+  }
+
+  &__card-sub {
+    font-size: 12px;
+    color: $color-grey-400;
+    margin-top: 2px;
+  }
+
+  &__card-actions {
+    display: flex;
+    gap: $space-xs;
+  }
+}
+
+// ─── Buttons ──────────────────────────────────────────────────────────────────
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-xs;
+  padding: 9px $space-md;
+  border-radius: $radius-md;
+  font-family: $font-body;
+  font-size: 13.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: $transition-fast;
+  white-space: nowrap;
+
+  &--primary {
+    background: $color-orange;
+    color: $color-white;
+    border: 1.5px solid $color-orange;
+
+    &:hover {
+      background: $color-orange-dark;
+      border-color: $color-orange-dark;
+      box-shadow: $shadow-orange;
+      transform: translateY(-1px);
+    }
+  }
+
+  &--outline {
+    background: $color-white;
+    color: $color-black;
+    border: 1.5px solid $color-grey-200;
+
+    &:hover {
+      border-color: $color-black;
+    }
+  }
+}
+
+.tab {
+  padding: 5px $space-md;
+  border-radius: $radius-sm;
+  font-family: $font-body;
+  font-size: 12px;
+  font-weight: 500;
+  color: $color-grey-500;
+  background: transparent;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: $transition-fast;
+
+  &:hover {
+    color: $color-black;
+    background: $color-grey-100;
+  }
+
+  &--active {
+    color: $color-orange;
+    background: $color-orange-glow;
+    border-color: rgba($color-orange, 0.25);
+  }
+}
+
+.link-btn {
+  font-size: 13px;
+  font-weight: 500;
+  color: $color-orange;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: $transition-fast;
+  white-space: nowrap;
+
+  &:hover {
+    opacity: 0.75;
+    transform: translateX(2px);
+  }
+}
+
+// ─── Stat Card ────────────────────────────────────────────────────────────────
+
+.stat-card {
+  background: $color-white;
+  border: 1px solid $color-grey-200;
+  border-radius: $radius-lg;
+  padding: $space-lg;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+  overflow: hidden;
+  transition: $transition-base;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+
+  // Top accent stripe
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    border-radius: $radius-lg $radius-lg 0 0;
+  }
+
+  &--orange::before { background: $color-orange; }
+  &--black::before  { background: $color-black; }
+  &--grey::before   { background: $color-grey-400; }
+  &--success::before { background: $color-success; }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: $space-xs;
+  }
+
+  &__icon-wrap {
+    width: 40px;
+    height: 40px;
+    border-radius: $radius-md;
+    background: $color-grey-100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+
+    .stat-card--orange & {
+      background: $color-orange-glow;
+    }
+  }
+
+  &__icon {
+    line-height: 1;
+  }
+
+  &__trend {
+    font-size: 12px;
+    font-weight: 600;
+    font-family: $font-mono;
+    padding: 3px 8px;
+    border-radius: $radius-full;
+
+    &--up {
+      color: $color-success;
+      background: rgba($color-success, 0.1);
+    }
+
+    &--down {
+      color: $color-danger;
+      background: rgba($color-danger, 0.1);
+    }
+  }
+
+  &__value {
+    font-family: $font-display;
+    font-size: 28px;
+    font-weight: 800;
+    color: $color-black;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+
+  &__label {
+    font-size: 13px;
+    font-weight: 600;
+    color: $color-black;
+  }
+
+  &__sub {
+    font-size: 11.5px;
+    color: $color-grey-500;
+    line-height: 1.4;
+  }
+
+  &__trend-label {
+    font-size: 11px;
+    color: $color-grey-400;
+    margin-top: 2px;
+  }
+}
+
+// ─── Revenue Chart ────────────────────────────────────────────────────────────
+
+.revenue-chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 180px;
+  gap: $space-sm;
+  padding-top: $space-sm;
+
+  &__col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    height: 100%;
+  }
+
+  &__bar-wrap {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  &__bar {
+    width: 100%;
+    max-width: 40px;
+    background: linear-gradient(to top, $color-orange, rgba($color-orange, 0.6));
+    border-radius: $radius-sm $radius-sm 0 0;
+    position: relative;
+    cursor: pointer;
+    transition: $transition-fast;
+    animation-delay: 300ms;
+
+    &:hover {
+      background: linear-gradient(to top, $color-orange-dark, $color-orange);
+      transform: scaleY(1.03);
+      transform-origin: bottom;
+
+      .revenue-chart__bar-tip {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+
+  &__bar-tip {
+    position: absolute;
+    top: -32px;
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    background: $color-black;
+    color: $color-white;
+    font-size: 10px;
+    font-family: $font-mono;
+    padding: 3px 6px;
+    border-radius: $radius-sm;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: $transition-fast;
+  }
+
+  &__label {
+    font-size: 11px;
+    color: $color-grey-400;
+    font-weight: 500;
+  }
+}
+
+// ─── Fleet Status ─────────────────────────────────────────────────────────────
+
+.fleet-status {
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+
+  &__row {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+  }
+
+  &__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: $radius-full;
+    flex-shrink: 0;
+  }
+
+  &__label {
+    font-size: 13px;
+    font-weight: 500;
+    color: $color-black;
+    flex: 1;
+  }
+
+  &__count {
+    font-size: 13px;
+    font-weight: 700;
+    color: $color-black;
+    font-family: $font-mono;
+  }
+
+  &__bar-track {
+    height: 6px;
+    background: $color-grey-100;
+    border-radius: $radius-full;
+    overflow: hidden;
+  }
+
+  &__bar-fill {
+    height: 100%;
+    border-radius: $radius-full;
+    animation-delay: 400ms;
+  }
+
+  &__divider {
+    height: 1px;
+    background: $color-grey-200;
+    margin: $space-xs 0;
+  }
+
+  &__kpis {
+    display: flex;
+    gap: $space-md;
+  }
+}
+
+.fleet-kpi {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: $space-sm;
+  background: $color-grey-100;
+  border-radius: $radius-md;
+
+  &__value {
+    font-family: $font-display;
+    font-size: 20px;
+    font-weight: 800;
+    color: $color-black;
+  }
+
+  &__label {
+    font-size: 10px;
+    color: $color-grey-500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 500;
+  }
+}
+
+// ─── Data Table ───────────────────────────────────────────────────────────────
+
+.data-table {
+  overflow-x: auto;
+
+  &__head {
+    display: grid;
+    grid-template-columns: 70px 1fr 1fr 90px 80px 60px 90px;
+    gap: $space-md;
+    padding: 8px $space-sm;
+    margin-bottom: 4px;
+
+    span {
+      font-size: 11px;
+      font-weight: 600;
+      color: $color-grey-400;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 70px 1fr 1fr 90px 80px 60px 90px;
+    gap: $space-md;
+    align-items: center;
+    padding: 11px $space-sm;
+    border-radius: $radius-md;
+    font-size: 13.5px;
+    color: $color-black;
+    transition: $transition-fast;
+
+    &:hover {
+      background: $color-grey-100;
+    }
+
+    & + & {
+      border-top: 1px solid $color-grey-200;
+    }
+  }
+
+  // Bookings table variant (6 cols)
+  &:has(.data-table__head span:nth-child(6):last-child) {
+    .data-table__head,
+    .data-table__row {
+      grid-template-columns: 70px 1fr 1fr 60px 100px 100px;
+    }
+  }
+
+  &__id {
+    font-family: $font-mono;
+    font-size: 12px;
+    color: $color-grey-500;
+    font-weight: 500;
+  }
+
+  &__primary {
+    font-weight: 500;
+    color: $color-black;
+  }
+
+  &__mono {
+    font-family: $font-mono;
+    font-size: 12.5px;
+  }
+}
+
+// ─── Badge ────────────────────────────────────────────────────────────────────
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: $radius-full;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+
+  &--success {
+    background: rgba($color-success, 0.1);
+    color: darken($color-success, 10%);
+  }
+
+  &--warning {
+    background: rgba($color-warning, 0.12);
+    color: darken($color-warning, 15%);
+  }
+
+  &--danger {
+    background: rgba($color-danger, 0.1);
+    color: $color-danger;
+  }
+
+  &--info {
+    background: rgba($color-info, 0.1);
+    color: $color-info;
+  }
+}

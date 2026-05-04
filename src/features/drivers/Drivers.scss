@@ -1,0 +1,268 @@
+/* ─── Animations ─────────────────────────────────────────────────────────── */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.96) translateY(12px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ─── Page Shell ─────────────────────────────────────────────────────────── */
+
+.drivers-page {
+  max-width: 1400px;
+
+  &--loaded {
+    .sum-chip        { animation: fadeUp 0.35s ease both; }
+    .drivers-table__row { animation: fadeUp 0.3s ease both; }
+  }
+
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: var(--space-lg);
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  &__title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--color-black);
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+  }
+
+  &__sub {
+    font-size: 13.5px;
+    color: var(--color-grey-500);
+  }
+
+  /* ── Summary strip ──────────────────────────────────────────────────────── */
+
+  &__summary {
+    display: flex;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+    flex-wrap: wrap;
+  }
+
+  /* ── Controls ───────────────────────────────────────────────────────────── */
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  /* ── Footer ─────────────────────────────────────────────────────────────── */
+
+  &__footer {
+    margin-top: var(--space-md);
+    font-size: 12px;
+    color: var(--color-grey-400);
+    text-align: right;
+  }
+}
+
+/* ─── Table ──────────────────────────────────────────────────────────────── */
+
+.drivers-table-wrap {
+  background: var(--color-white);
+  border: 1.5px solid var(--color-grey-200);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.drivers-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+
+  thead {
+    background: var(--color-grey-100);
+    border-bottom: 1.5px solid var(--color-grey-200);
+
+    th {
+      padding: 11px 16px;
+      text-align: left;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-grey-400);
+      white-space: nowrap;
+    }
+  }
+
+  &__row {
+    border-bottom: 1px solid var(--color-grey-200);
+    cursor: pointer;
+    transition: var(--transition-fast);
+
+    &:last-child { border-bottom: none; }
+    &:hover { background: var(--color-grey-100); }
+
+    td { padding: 13px 16px; vertical-align: middle; }
+  }
+
+  &__num {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--color-grey-400);
+    width: 40px;
+  }
+
+  &__name {
+    font-weight: 600;
+    color: var(--color-black);
+  }
+
+  &__license {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--color-grey-600);
+    background: var(--color-grey-100);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  &__phone {
+    color: var(--color-grey-500);
+  }
+
+  &__date {
+    font-size: 13px;
+    color: var(--color-grey-500);
+  }
+
+  &__actions {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+}
+
+/* ─── Driver form ───────────────────────────────────────────────────────── */
+
+.driver-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+
+  &__section-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-grey-400);
+    padding-bottom: var(--space-xs);
+    border-bottom: 1px solid var(--color-grey-200);
+    margin-top: var(--space-xs);
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+
+    @media (max-width: 520px) { grid-template-columns: 1fr; }
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  &__label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-grey-500);
+    letter-spacing: 0.01em;
+  }
+
+  &__input {
+    height: 40px;
+    border: 1.5px solid var(--color-grey-200);
+    border-radius: var(--radius-md);
+    padding: 0 var(--space-md);
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    color: var(--color-black);
+    background: var(--color-white);
+    outline: none;
+    transition: var(--transition-fast);
+
+    &::placeholder { color: var(--color-grey-300); }
+
+    &:focus {
+      border-color: var(--color-orange);
+      box-shadow: 0 0 0 3px var(--color-orange-glow);
+    }
+
+    &:disabled {
+      background: var(--color-grey-100);
+      color: var(--color-grey-500);
+      cursor: default;
+    }
+  }
+
+  &__select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%239A9A95' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 32px;
+  }
+}
+
+/* ─── Status banner (view mode) ──────────────────────────────────────────── */
+
+.driver-status-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-md);
+  background: var(--color-grey-100);
+  border: 1.5px solid var(--color-grey-200);
+
+  &--active      { background: rgba(34, 197, 94, 0.05);  border-color: rgba(34, 197, 94, 0.2); }
+  &--suspended   { background: rgba(239, 68, 68, 0.05);  border-color: rgba(239, 68, 68, 0.2); }
+  &--left        { border-color: var(--color-grey-200); }
+}
+
+/* ─── Error/Loading ──────────────────────────────────────────────────────── */
+
+.drivers-error, .drivers-loading, .drivers-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 0;
+  gap: 16px;
+  text-align: center;
+  color: var(--color-grey-400);
+
+  span { font-size: 40px; }
+  p    { font-size: 14px; }
+}
+
+.drivers-error p {
+  color: var(--color-danger);
+  font-weight: 500;
+}

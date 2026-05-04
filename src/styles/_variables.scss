@@ -1,0 +1,65 @@
+// ─── WestBus Design Tokens ────────────────────────────────────────────────────
+
+// Colors
+$color-black:       #0A0A0A;
+$color-black-soft:  #141414;
+$color-black-muted: #1E1E1E;
+$color-orange:      #FF6B1A;
+$color-orange-dark: #E55A0A;
+$color-orange-glow: rgba(255, 107, 26, 0.15);
+$color-white:       #FFFFFF;
+$color-white-soft:  #F7F7F5;
+$color-white-muted: #EFEFED;
+$color-grey-100:    #F5F5F3;
+$color-grey-200:    #E8E8E5;
+$color-grey-300:    #C8C8C4;
+$color-grey-400:    #9A9A95;
+$color-grey-500:    #6B6B66;
+$color-grey-600:    #3D3D3A;
+
+// Semantic
+$color-success:     #22C55E;
+$color-warning:     #F59E0B;
+$color-danger:      #EF4444;
+$color-info:        #3B82F6;
+
+// Sidebar
+$sidebar-bg:        $color-black;
+$sidebar-width:     260px;
+$sidebar-collapsed: 72px;
+
+// Navbar
+$navbar-height:     64px;
+$navbar-bg:         $color-white;
+
+// Typography
+$font-display:      'Syne', sans-serif;
+$font-body:         'DM Sans', sans-serif;
+$font-mono:         'JetBrains Mono', monospace;
+
+// Spacing
+$space-xs:  4px;
+$space-sm:  8px;
+$space-md:  16px;
+$space-lg:  24px;
+$space-xl:  32px;
+$space-2xl: 48px;
+$space-3xl: 64px;
+
+// Radius
+$radius-sm:   6px;
+$radius-md:   12px;
+$radius-lg:   16px;
+$radius-xl:   24px;
+$radius-full: 9999px;
+
+// Shadows
+$shadow-sm:  0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+$shadow-md:  0 4px 16px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.04);
+$shadow-lg:  0 8px 32px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.06);
+$shadow-orange: 0 4px 20px rgba(255, 107, 26, 0.30);
+
+// Transitions
+$transition-fast:   all 0.15s ease;
+$transition-base:   all 0.25s ease;
+$transition-slow:   all 0.40s cubic-bezier(0.4, 0, 0.2, 1);

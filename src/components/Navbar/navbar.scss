@@ -1,0 +1,241 @@
+@import '../../styles/variables';
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: $sidebar-width;
+  right: 0;
+  height: $navbar-height;
+  background: $color-white;
+  border-bottom: 1px solid $color-grey-200;
+  display: flex;
+  align-items: center;
+  gap: $space-lg;
+  padding: 0 $space-xl;
+  z-index: 50;
+  transition: left $transition-slow;
+
+  &--collapsed {
+    left: $sidebar-collapsed;
+  }
+
+  // ── Left ──────────────────────────────────────────────────────────────────
+  &__left {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    min-width: 160px;
+  }
+
+  &__breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: $color-grey-400;
+  }
+
+  &__breadcrumb-root {
+    font-weight: 500;
+  }
+
+  &__breadcrumb-sep {
+    color: $color-grey-300;
+  }
+
+  &__breadcrumb-current {
+    color: $color-orange;
+    font-weight: 500;
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: 17px;
+    font-weight: 700;
+    color: $color-black;
+    letter-spacing: -0.01em;
+    line-height: 1;
+  }
+
+  // ── Search ────────────────────────────────────────────────────────────────
+  &__search {
+    flex: 1;
+    max-width: 480px;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  &__search-icon {
+    position: absolute;
+    left: $space-md;
+    font-size: 18px;
+    color: $color-grey-400;
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  &__search-input {
+    width: 100%;
+    height: 38px;
+    background: $color-grey-100;
+    border: 1.5px solid $color-grey-200;
+    border-radius: $radius-full;
+    padding: 0 $space-xl 0 40px;
+    font-family: $font-body;
+    font-size: 13.5px;
+    color: $color-black;
+    outline: none;
+    transition: $transition-fast;
+
+    &::placeholder {
+      color: $color-grey-400;
+    }
+
+    &:focus {
+      border-color: $color-orange;
+      background: $color-white;
+      box-shadow: 0 0 0 3px $color-orange-glow;
+    }
+  }
+
+  &__search-kbd {
+    position: absolute;
+    right: $space-md;
+    font-size: 11px;
+    color: $color-grey-400;
+    background: $color-grey-200;
+    padding: 2px 6px;
+    border-radius: $radius-sm;
+    font-family: $font-mono;
+    pointer-events: none;
+  }
+
+  // ── Right ─────────────────────────────────────────────────────────────────
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: $space-md;
+    margin-left: auto;
+  }
+
+  &__date {
+    font-size: 12px;
+    color: $color-grey-400;
+    white-space: nowrap;
+
+    @media (max-width: 1200px) {
+      display: none;
+    }
+  }
+
+  &__icon-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: $radius-md;
+    border: 1.5px solid $color-grey-200;
+    background: $color-white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    position: relative;
+    transition: $transition-fast;
+    cursor: pointer;
+
+    &:hover {
+      border-color: $color-orange;
+      background: $color-orange-glow;
+    }
+
+    &--active {
+      border-color: $color-orange;
+      background: $color-orange-glow;
+    }
+  }
+
+  &__notif-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 16px;
+    height: 16px;
+    background: $color-orange;
+    border-radius: $radius-full;
+    font-size: 9px;
+    font-weight: 700;
+    color: $color-white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-mono;
+    border: 2px solid $color-white;
+  }
+
+  &__divider {
+    width: 1px;
+    height: 28px;
+    background: $color-grey-200;
+  }
+
+  &__profile {
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+    padding: 6px $space-sm;
+    border-radius: $radius-md;
+    border: 1.5px solid $color-grey-200;
+    background: $color-white;
+    cursor: pointer;
+    transition: $transition-fast;
+
+    &:hover {
+      border-color: $color-orange;
+      background: $color-orange-glow;
+    }
+  }
+
+  &__profile-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: $radius-full;
+    background: $color-black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-display;
+    font-weight: 700;
+    font-size: 12px;
+    color: $color-orange;
+    flex-shrink: 0;
+  }
+
+  &__profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+
+    @media (max-width: 1000px) {
+      display: none;
+    }
+  }
+
+  &__profile-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: $color-black;
+    line-height: 1;
+  }
+
+  &__profile-role {
+    font-size: 10px;
+    color: $color-grey-400;
+    line-height: 1;
+  }
+
+  &__profile-chevron {
+    font-size: 14px;
+    color: $color-grey-400;
+    line-height: 1;
+  }
+}

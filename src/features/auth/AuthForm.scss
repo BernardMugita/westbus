@@ -1,0 +1,164 @@
+@import '../../styles/variables';
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $color-grey-100;
+  padding: $space-xl;
+  position: relative;
+  overflow: hidden;
+
+  // Background decoration
+  &::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    right: -10%;
+    width: 40%;
+    height: 40%;
+    background: radial-gradient(circle, rgba($color-orange, 0.05) 0%, transparent 70%);
+    z-index: 0;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10%;
+    left: -10%;
+    width: 40%;
+    height: 40%;
+    background: radial-gradient(circle, rgba($color-black, 0.03) 0%, transparent 70%);
+    z-index: 0;
+  }
+}
+
+.auth-container {
+  width: 100%;
+  max-width: 420px;
+  background: $color-white;
+  padding: $space-2xl;
+  border-radius: $radius-xl;
+  border: 1px solid $color-grey-200;
+  box-shadow: $shadow-lg;
+  position: relative;
+  z-index: 1;
+  animation: fadeUp 0.5s ease-out;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: $space-2xl;
+
+  &__logo {
+    width: 48px;
+    height: 48px;
+    background: $color-black;
+    border-radius: $radius-md;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto $space-md;
+    box-shadow: $shadow-orange;
+
+    span {
+      font-family: $font-display;
+      font-weight: 800;
+      font-size: 24px;
+      color: $color-orange;
+    }
+  }
+
+  &__title {
+    font-size: 24px;
+    color: $color-black;
+    margin-bottom: $space-xs;
+  }
+
+  &__sub {
+    font-size: 14px;
+    color: $color-grey-500;
+  }
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  &__label {
+    font-size: 13px;
+    font-weight: 600;
+    color: $color-black;
+  }
+
+  &__input {
+    height: 44px;
+    padding: 0 $space-md;
+    border-radius: $radius-md;
+    border: 1.5px solid $color-grey-200;
+    font-family: $font-body;
+    font-size: 14px;
+    transition: $transition-fast;
+    background: $color-grey-100;
+
+    &::placeholder {
+      color: $color-grey-400;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $color-orange;
+      background: $color-white;
+      box-shadow: 0 0 0 3px $color-orange-glow;
+    }
+  }
+
+  &__submit {
+    margin-top: $space-sm;
+  }
+
+  &__footer {
+    text-align: center;
+    margin-top: $space-xl;
+    font-size: 14px;
+    color: $color-grey-500;
+
+    button {
+      color: $color-orange;
+      font-weight: 600;
+      margin-left: 4px;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__error {
+    background: rgba($color-danger, 0.1);
+    color: $color-danger;
+    padding: $space-sm $space-md;
+    border-radius: $radius-md;
+    font-size: 13px;
+    border: 1px solid rgba($color-danger, 0.2);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
