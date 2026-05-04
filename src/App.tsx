@@ -8,6 +8,7 @@ import AuthForm from './features/auth/AuthForm'
 import Vehicles from './features/vehicles/Vehicles'
 import { Drivers } from './features/drivers'
 import { Assignments } from './features/assignments'
+import { Routes as TransportRoutes } from './features/routes'
 import { useAuthStore } from './features/auth/authStore'
 
 const AppContent: React.FC = () => {
@@ -44,6 +45,7 @@ const AppContent: React.FC = () => {
             <Route path="/" element={<Dashboard />} />
             <Route path="/home" element={<Home />} />
             <Route path="/vehicles" element={<Vehicles />} />
+            <Route path="/routes" element={<TransportRoutes />} />
             <Route path="/drivers" element={<Drivers />} />
             <Route path="/driver-assignments" element={<Assignments />} />
             
