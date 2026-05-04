@@ -9,6 +9,7 @@ import Vehicles from './features/vehicles/Vehicles'
 import { Drivers } from './features/drivers'
 import { Assignments } from './features/assignments'
 import { Routes as TransportRoutes } from './features/routes'
+import { Trips } from './features/trips'
 import { useAuthStore } from './features/auth/authStore'
 
 const AppContent: React.FC = () => {
@@ -46,6 +47,7 @@ const AppContent: React.FC = () => {
             <Route path="/home" element={<Home />} />
             <Route path="/vehicles" element={<Vehicles />} />
             <Route path="/routes" element={<TransportRoutes />} />
+            <Route path="/trips" element={<Trips />} />
             <Route path="/drivers" element={<Drivers />} />
             <Route path="/driver-assignments" element={<Assignments />} />
             
