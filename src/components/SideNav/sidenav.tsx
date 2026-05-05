@@ -16,7 +16,6 @@ import {
   HiCalendar, 
   HiShieldCheck, 
   HiClipboardDocumentCheck, 
-  HiUserGroup,
   HiChevronLeft,
   HiChevronRight
 } from 'react-icons/hi2'
