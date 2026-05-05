@@ -46,10 +46,10 @@ const NAV_ITEMS: NavItem[] = [
   { label: 'Schedules',          path: '/maintenance-schedules',   icon: HiCalendar,   group: 'Maintenance' },
   { label: 'Insurance',          path: '/insurance-policies',      icon: HiShieldCheck, group: 'Insurance' },
   { label: 'Claims',             path: '/insurance-claims',        icon: HiClipboardDocumentCheck, group: 'Insurance' },
-  { label: 'Users',              path: '/users',                   icon: HiUserGroup,  group: 'Admin' },
+  // { label: 'Users',              path: '/users',                   icon: HiUserGroup,  group: 'Admin' },
 ]
 
-const GROUPS = ['Overview', 'Fleet', 'Operations', 'Finance', 'Maintenance', 'Insurance', 'Admin']
+const GROUPS = ['Overview', 'Fleet', 'Operations', 'Finance', 'Maintenance', 'Insurance']
 
 interface SidenavProps {
   collapsed: boolean
