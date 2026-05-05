@@ -14,6 +14,7 @@ import { Revenue } from './features/revenue'
 import { Expenses } from './features/expenses'
 import { Loans } from './features/loans'
 import { LoanRepayments } from './features/loan-repayments'
+import { MaintenanceRecords } from './features/maintenance-records'
 import { useAuthStore } from './features/auth/authStore'
 
 const AppContent: React.FC = () => {
@@ -58,6 +59,7 @@ const AppContent: React.FC = () => {
             <Route path="/expenses" element={<Expenses />} />
             <Route path="/loans" element={<Loans />} />
             <Route path="/loan-repayments" element={<LoanRepayments />} />
+            <Route path="/maintenance-records" element={<MaintenanceRecords />} />
 
             {/* Public Auth Route */}
             <Route path="/auth" element={<AuthForm />} />
