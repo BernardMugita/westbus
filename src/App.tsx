@@ -18,6 +18,7 @@ import { MaintenanceRecords } from './features/maintenance-records'
 import { useAuthStore } from './features/auth/authStore'
 import { MaintenanceSchedules } from './features/maintenance-schedules'
 import { Insurance } from './features/insurance'
+import { InsuranceClaims } from './features/claims'
 
 const AppContent: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false)
@@ -64,6 +65,7 @@ const AppContent: React.FC = () => {
             <Route path="/maintenance-records" element={<MaintenanceRecords />} />
             <Route path="/maintenance-schedules" element={<MaintenanceSchedules />} />
             <Route path="/insurance-policies" element={<Insurance />} />
+            <Route path="/insurance-claims" element={<InsuranceClaims />} />
 
             {/* Public Auth Route */}
             <Route path="/auth" element={<AuthForm />} />
