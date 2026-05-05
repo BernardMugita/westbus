@@ -10,6 +10,8 @@ import { Drivers } from './features/drivers'
 import { Assignments } from './features/assignments'
 import { Routes as TransportRoutes } from './features/routes'
 import { Trips } from './features/trips'
+import { Revenue } from './features/revenue'
+import { Expenses } from './features/expenses'
 import { useAuthStore } from './features/auth/authStore'
 
 const AppContent: React.FC = () => {
@@ -50,7 +52,9 @@ const AppContent: React.FC = () => {
             <Route path="/trips" element={<Trips />} />
             <Route path="/drivers" element={<Drivers />} />
             <Route path="/driver-assignments" element={<Assignments />} />
-            
+            <Route path="/revenue-ledger" element={<Revenue />} />
+            <Route path="/expenses" element={<Expenses />} />
+
             {/* Public Auth Route */}
             <Route path="/auth" element={<AuthForm />} />
             
