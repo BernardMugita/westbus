@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react'
 import { 
-  HiReceiptRefund, 
   HiCheckCircle, 
-  HiXCircle, 
   HiMagnifyingGlass, 
   HiXMark, 
   HiEye, 

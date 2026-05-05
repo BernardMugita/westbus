@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react'
 import { 
-  HiReceiptRefund, 
-  HiCheckCircle, 
-  HiXCircle, 
+  HiReceiptRefund,
   HiMagnifyingGlass, 
   HiXMark, 
   HiEye, 
@@ -11,8 +9,7 @@ import {
   HiTrash,
   HiClock,
   HiTruck,
-  HiWrenchScrewdriver,
-  HiTicket
+  HiWrenchScrewdriver
 } from 'react-icons/hi2'
 import { useExpenseStore } from './expenseStore'
 import { useTripStore } from '../trips/tripStore'

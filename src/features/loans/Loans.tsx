@@ -9,7 +9,6 @@ import {
   HiPencilSquare, 
   HiPlus, 
   HiTrash,
-  HiClock,
   HiBuildingLibrary,
   HiCalendarDays,
   HiTruck

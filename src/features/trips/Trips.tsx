@@ -150,7 +150,7 @@ function TripModal({ mode, trip, onClose, onSave, onDelete, isLoading }: ModalPr
               <div className="detail-grid">
                 {[
                   { label: 'Vehicle',          value: selectedVehicle ? `${selectedVehicle.registration_number} (${selectedVehicle.model})` : trip.vehicle_id, icon: <HiTruck /> },
-                  { label: 'Driver',           value: selectedDriver ? selectedDriver.full_name : trip.driver_id, icon: <HiUser /> },
+                  { label: 'Driver',           value: selectedDriver ? selectedDriver.name : trip.driver_id, icon: <HiUser /> },
                   { label: 'Route',            value: selectedRoute ? selectedRoute.route_name : trip.route_id, icon: <HiMap /> },
                   { label: 'Start Time',       value: formatDateTime(trip.start_time), icon: <HiClock /> },
                   { label: 'End Time',         value: formatDateTime(trip.end_time), icon: <HiClock /> },
@@ -205,7 +205,7 @@ function TripModal({ mode, trip, onClose, onSave, onDelete, isLoading }: ModalPr
                     <option value="">Select Driver</option>
                     {drivers.map(d => (
                       <option key={d.driver_id} value={d.driver_id}>
-                        {d.full_name}
+                        {d.name}
                       </option>
                     ))}
                   </select>
@@ -371,7 +371,7 @@ export default function Trips() {
     const driver = drivers.find(d => d.driver_id === t.driver_id)
     const route = routes.find(r => r.route_id === t.route_id)
     
-    const searchStr = `${vehicle?.registration_number} ${driver?.full_name} ${route?.route_name}`.toLowerCase()
+    const searchStr = `${vehicle?.registration_number} ${driver?.name} ${route?.route_name}`.toLowerCase()
     const matchSearch = searchStr.includes(search.toLowerCase())
     const matchStatus = filterStatus === 'ALL' || t.status === filterStatus
     return matchSearch && matchStatus
@@ -524,7 +524,7 @@ export default function Trips() {
                         <span>{vehicle?.model}</span>
                       </div>
                     </td>
-                    <td>{driver?.full_name || '—'}</td>
+                    <td>{driver?.name || '—'}</td>
                     <td>{route?.route_name || '—'}</td>
                     <td className="trips-table__date">{formatDateTime(t.start_time)}</td>
                     <td>

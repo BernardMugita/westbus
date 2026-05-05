@@ -8,9 +8,7 @@ import {
   HiEye, 
   HiPencilSquare, 
   HiPlus, 
-  HiTrash,
-  HiClock,
-  HiMapPin
+  HiTrash
 } from 'react-icons/hi2'
 import { useRouteStore } from './routeStore'
 import { useAuthStore } from '../auth/authStore'

@@ -2,16 +2,13 @@ import { useState, useEffect } from 'react'
 import { 
   HiWrenchScrewdriver, 
   HiCheckCircle, 
-  HiXCircle, 
   HiMagnifyingGlass, 
   HiXMark, 
   HiEye, 
   HiPencilSquare, 
   HiPlus, 
   HiTrash,
-  HiClock,
   HiTruck,
-  HiUser,
   HiBuildingStorefront
 } from 'react-icons/hi2'
 import { useMaintenanceStore } from './maintenanceStore'
@@ -333,7 +330,7 @@ function MaintenanceModal({ mode, record, onClose, onSave, onDelete, isLoading }
 export default function MaintenanceRecords() {
   const { records, isLoading, error, fetchRecords, addRecord, updateRecord, removeRecord } = useMaintenanceStore()
   const { fetchVehicles, vehicles } = useVehicleStore()
-  const { fetchDrivers, drivers } = useDriverStore()
+  const { fetchDrivers } = useDriverStore()
   const { token } = useAuthStore()
   
   const [modal, setModal] = useState<{ mode: ModalMode; record: MaintenanceRecord | null }>({

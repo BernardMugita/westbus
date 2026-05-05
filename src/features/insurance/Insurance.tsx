@@ -393,7 +393,7 @@ export default function Insurance() {
   const activeCount     = records.filter(r => r.status === 'Active').length
   const expiringSoon    = records.filter(r => r.status === 'Active' && daysUntilExpiry(r.end_date) <= 30).length
   const totalPremium    = records.reduce((acc, r) => acc + r.premium_amount, 0)
-  const expiredCount    = records.filter(r => r.status === 'Expired').length
+  // const expiredCount    = records.filter(r => r.status === 'Expired').length
 
   return (
     <div className={`insurance-page ${loaded ? 'insurance-page--loaded' : ''}`}>

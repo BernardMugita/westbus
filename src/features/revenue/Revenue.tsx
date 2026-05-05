@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react'
 import { 
   HiBanknotes, 
-  HiCheckCircle, 
-  HiXCircle, 
+  HiCheckCircle,
   HiMagnifyingGlass, 
   HiXMark, 
   HiEye, 

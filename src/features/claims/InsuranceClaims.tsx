@@ -396,7 +396,7 @@ export default function InsuranceClaims() {
     // ── Stats ────────────────────────────────────────────────────────────────────
     const pendingCount = claims.filter(c => c.status === 'Pending').length
     const approvedCount = claims.filter(c => c.status === 'Approved').length
-    const rejectedCount = claims.filter(c => c.status === 'Rejected').length
+    // const rejectedCount = claims.filter(c => c.status === 'Rejected').length
     const totalClaimed = claims.reduce((acc, c) => acc + c.amount_claimed, 0)
 
     return (
